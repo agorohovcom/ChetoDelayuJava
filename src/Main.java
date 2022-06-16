@@ -1,22 +1,11 @@
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.LockSupport;
-
 public class Main {
     public static void main(String[] args) {
-        // Сколько потоков могжет запустить ПК
 
+        System.out.printf("%02x%n", 3544);
 
+        System.out.println(Integer.toHexString(0xFfffF & -65));
 
+        System.out.println("двоичный int -1: " + Integer.toBinaryString(-1));
 
-
-                var counter = new AtomicInteger();
-                while (true) {
-                    new Thread(() -> {
-                        int count = counter.incrementAndGet();
-                        System.out.println("thread count = " + count);
-                        LockSupport.park();
-                    }).start();
-                }
-            }
-
+    }
 }

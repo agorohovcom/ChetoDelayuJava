@@ -16,7 +16,7 @@ public class BlockingQueueSample {
                     System.out.println("producer: запись в очередь " + words[i] + ", число элементов в очереди: " + queue.size());
                     i++;
                 } catch (InterruptedException e) {
-                    e.printStackTrace(); 
+                    e.printStackTrace();
                 }
             }
         });
