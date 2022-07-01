@@ -1,4 +1,4 @@
-package DynamicProxy;
+package Remote.DynamicProxy;
 
 public interface Person {
     public void introduce(String name);

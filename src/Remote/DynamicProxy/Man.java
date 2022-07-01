@@ -1,4 +1,4 @@
-package DynamicProxy;
+package Remote.DynamicProxy;
 
 public class Man implements Person{
     private String name;
