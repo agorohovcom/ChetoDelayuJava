@@ -14,10 +14,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -25,9 +22,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLSample {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        /**
+         * 1
+         * Запись XML в файл
+         * Если массив posts окажется пустым, то новый XML-файл должен будет иметь следующий вид :
+         * <?xml version="1.0" encoding="UTF-8"?>
+         * <Posts lang="en">
+         *     <Users></Users>
+         *     <Forums></Forums>
+         * </Posts>
+         */
+//        XMLSample xmlSample1 = new XMLSample();
+//        try {
+//            xmlSample1.writeDataXML();
+//        } catch (TransformerConfigurationException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
+        /**
+         * Вот так работает
+         * Сперва с помощью readDataXML() читает данные из файла posts.xml,
+         * затем с помощью writeDataXML() пишет их в файл data.xml
+         */
+        XMLSample xmlSample2 = new XMLSample();
+        xmlSample2.readDataXML();
+        try {
+            xmlSample2.writeDataXML();
+        } catch (TransformerConfigurationException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     private final String FILE_post = "src/XML/DOM/ReadAndCreateXMLFile/posts.xml";
     private  final  String  FILE_data = "src/XML/DOM/ReadAndCreateXMLFile/data.xml";
     private List<Post> posts;
@@ -44,7 +72,7 @@ public class XMLSample {
     /**
      * Чтение XML-файла
      * Для чтения XML-файла в проекте используется метод readDataXML(),
-     * который создает список persons типа List<Person>,
+     * который создает список (persons типа List<Person> - это ошибка?) posts типа List<Post>,
      * читает XML-файл данных и формирует объект doc типа Document.
      * После этого в цикле создается массив данных.
      * Вспомогательная функция getValue извлекает текст атрибута записи.
@@ -58,7 +86,7 @@ public class XMLSample {
         Document doc = null;
 
         try {
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 2022-07-21 19:45:01
             dbf = DocumentBuilderFactory.newInstance();
             db = dbf.newDocumentBuilder();
             doc = null;
