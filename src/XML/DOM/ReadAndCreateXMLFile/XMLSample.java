@@ -43,6 +43,7 @@ public class XMLSample {
 
 
         /**
+         * 2
          * Вот так работает
          * Сперва с помощью readDataXML() читает данные из файла posts.xml,
          * затем с помощью writeDataXML() пишет их в файл data.xml
