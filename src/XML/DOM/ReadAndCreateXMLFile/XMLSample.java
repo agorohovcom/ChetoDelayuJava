@@ -1,5 +1,9 @@
 package XML.DOM.ReadAndCreateXMLFile;
 
+/**
+ * Статья: https://java-online.ru/java-xml.xhtml
+ */
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
