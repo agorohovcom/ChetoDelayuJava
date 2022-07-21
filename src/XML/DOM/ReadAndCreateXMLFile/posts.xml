@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROOT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <row>
+        <field name="forum_name">...</field>
+        <field name="year_post">...</field>
+        <field name="post_subject">...</field>
+        <field name="MID(post_text, 1, 80)">...</field>
+        <field name="username">...</field>
+        <field name="post_time">...</field>
+        <field name="post_time">...</field>
+        <field name="post_subject_source">...</field>
+    </row>
+</ROOT>
