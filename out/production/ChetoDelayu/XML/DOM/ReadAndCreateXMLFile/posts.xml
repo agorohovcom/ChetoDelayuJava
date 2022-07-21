@@ -2,7 +2,7 @@
 <ROOT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <row>
         <field name="forum_name">...</field>
-        <field name="year_post">2022-07-21 19:45:01</field> <!-- тут должна быть дата -->
+        <field name="year_post">2022-07-21 19:45:01</field>
         <field name="post_subject">...</field>
         <field name="MID(post_text, 1, 80)">...</field>
         <field name="username">...</field>
