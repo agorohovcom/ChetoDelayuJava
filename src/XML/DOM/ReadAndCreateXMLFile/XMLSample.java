@@ -50,7 +50,7 @@ public class XMLSample {
          * 2
          * Вот так работает
          * Сперва с помощью readDataXML() читает данные из файла posts.xml,
-         * затем с помощью writeDataXML() пишет их в файл data.xml
+         * затем с помощью writeDataXML() пишет их в файл data1.xml
          */
         XMLSample xmlSample2 = new XMLSample();
         xmlSample2.readDataXML();
@@ -62,7 +62,7 @@ public class XMLSample {
     }
 
     private final String FILE_post = "src/XML/DOM/ReadAndCreateXMLFile/posts.xml";
-    private  final  String  FILE_data = "src/XML/DOM/ReadAndCreateXMLFile/data.xml";
+    private  final  String  FILE_data = "src/XML/DOM/ReadAndCreateXMLFile/data1.xml";
     private List<Post> posts;
 
     private String getValue(NodeList fields, int index) {

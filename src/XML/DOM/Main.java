@@ -24,7 +24,7 @@ public class Main {
 
         dbf = DocumentBuilderFactory.newInstance();
         db = dbf.newDocumentBuilder();
-        doc = db.parse(new File("src/XML/DOM/data.xml"));
+        doc = db.parse(new File("src/XML/DOM/data1.xml"));
 
         /**
          * Создание XML-файла
