@@ -5,9 +5,11 @@ import java.util.Date;
 public class FibonacciRecursionWithMemo {
     public static void main(String[] args) {
         Date date = new Date();
-        System.out.println(FibonacciRecursionWithMemo.fibonacci(7)); // 13
-        System.out.println(FibonacciRecursionWithMemo.fibonacci(12)); // 144
-        System.out.println(FibonacciRecursionWithMemo.fibonacci(42)); // 267914296
+
+        System.out.println(fibonacci(7)); // 13
+        System.out.println(fibonacci(12)); // 144
+        System.out.println(fibonacci(42)); // 267914296
+
         System.out.println("Затраченное время: " + (new Date().getTime() - date.getTime()) + " миллисекунд."); // 1
     }
 
