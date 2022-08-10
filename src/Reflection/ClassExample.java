@@ -3,7 +3,8 @@ package Reflection;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class Main {
+// Ссылка: https://vertex-academy.com/tutorials/ru/pattern-factory-java/
+public class ClassExample {
     public static void main(String[] args) {
 
         /**
