@@ -1,6 +1,9 @@
 package Reflection;
 
+import jdk.jfr.Description;
+
 public class Car {
+    @Description("the power of an engine")
     private int horsepower;
     public final String serialNumber;
 
