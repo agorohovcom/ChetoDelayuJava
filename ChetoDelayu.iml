@@ -13,5 +13,6 @@
     <orderEntry type="library" name="io.github.artsok.rerunner.jupiter" level="project" />
     <orderEntry type="library" name="junit.jupiter" level="project" />
     <orderEntry type="library" name="slf4j" level="application" />
+    <orderEntry type="library" name="openjfx.javafx.base" level="project" />
   </component>
 </module>

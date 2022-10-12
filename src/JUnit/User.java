@@ -3,6 +3,7 @@ package JUnit;
 import java.util.*;
 
 public class User {
+
     public static void main(String[] args) {
 
 //        new User("Евгений", 35, Sex.MALE);
@@ -30,6 +31,18 @@ public class User {
 //        System.out.println("средний возраст всех пользователей FEMALE: " + User.getAverageAgeOfAllUsers(Sex.FEMALE));
 //        System.out.println("================================================");
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Sex getSex() {
+        return sex;
     }
 
     private static int countId = 0;
@@ -71,15 +84,16 @@ public class User {
 //        if (allUsers == null){
 //            allUsers = new HashMap<>();
 //        }
+        if (name != null && !name.isEmpty() && age > 0 && sex != null) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
 
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-
-        if (!hasUser()){
-            countId++;
-            this.id = countId;
-            allUsers.put(id, this);
+            if (!hasUser()) {
+                countId++;
+                this.id = countId;
+                allUsers.put(id, this);
+            }
         }
     }
 
