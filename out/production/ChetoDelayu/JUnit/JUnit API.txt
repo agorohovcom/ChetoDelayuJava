@@ -1,0 +1,13 @@
+Assert - все методы и способа сравнения в тестах
+TestCase - можно наследоваться для создания тестов
+TestResult - анализ резульатов тестов
+TestSuite - набор тестов, которые можно запускать вместе
+TestRule - дополнительные правила
+
+А потом появились аннотации, и теперь можно не наследоваться от TestCase:
+@Test
+@Before @After
+@BeforeClass @AfterClass
+@Ignore
+@Rule
+@Parametrized

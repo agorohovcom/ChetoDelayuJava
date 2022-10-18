@@ -1,4 +1,4 @@
-package JUnit;
+package JUnit.Example1;
 
 import java.util.*;
 
