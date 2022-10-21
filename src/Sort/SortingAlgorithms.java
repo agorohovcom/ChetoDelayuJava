@@ -111,9 +111,14 @@ public class SortingAlgorithms {
         // засекаем время выполнения метода
         Date start = new Date();
         // алгоритм "челночной" сортировки
-        // высчитываем промежуток между проверяемыми элементами
-        int gap = tempArray.length / 2;
-        while(gap >= 1){
+        // сперва высчитываем промежуток между проверяемыми элементами, выриантов есть много
+//        int gap = 2; - // простой вариант
+        // метод Кнута
+        int gap = 1;
+        while (gap <= tempArray.length / 3){
+            gap = gap * 3 + 1;
+        }
+        while(gap > 0){
             for(int right = 0; right < tempArray.length; right++){
                 for(int i = right - gap; i >= 0; i -= gap){
                     if(tempArray[i] > tempArray[i + gap]){
@@ -124,7 +129,9 @@ public class SortingAlgorithms {
                 }
             }
             // пересчитываем промежуток
-            gap = gap / 2;
+//            gap = gap / 2; // простой вариант
+            // метод Кнута
+            gap = (gap - 1) / 3;
         }
         // расчитываем время выполнения метода
         long time = new Date().getTime() - start.getTime();
