@@ -104,6 +104,36 @@ public class SortingAlgorithms {
         System.out.println();
     }
 
+    // СОРТИРОВКА ШЕЛЛА
+    public static void shellSort(int[] unsortedArray) {
+        // клонируем массив, чтобы не "задеть" оригинал
+        int[] tempArray = unsortedArray.clone();
+        // засекаем время выполнения метода
+        Date start = new Date();
+        // алгоритм "челночной" сортировки
+        // высчитываем промежуток между проверяемыми элементами
+        int gap = tempArray.length / 2;
+        while(gap >= 1){
+            for(int right = 0; right < tempArray.length; right++){
+                for(int i = right - gap; i >= 0; i -= gap){
+                    if(tempArray[i] > tempArray[i + gap]){
+                        int temp = tempArray[i + gap];
+                        tempArray[i + gap] = tempArray[i];
+                        tempArray[i] = temp;
+                    }
+                }
+            }
+            // пересчитываем промежуток
+            gap = gap / 2;
+        }
+        // расчитываем время выполнения метода
+        long time = new Date().getTime() - start.getTime();
+        // выводим результат в консоль
+        System.out.println("Результат сортировки \"ШЕЛЛА\" за " + time + " миллисек:");
+        for (int i = 0; i < tempArray.length; i++) System.out.print(tempArray[i] + " ");
+        System.out.println();
+    }
+
     // ЧЕЛНОЧНАЯ СОРТИРОВКА
     public static void shuttleSort(int[] unsortedArray) {
         // клонируем массив, чтобы не "задеть" оригинал
@@ -143,19 +173,18 @@ public class SortingAlgorithms {
 
         System.out.println("Массив int на " + unsortedArray.length + " чисел для сортировок:");
         for (int i : unsortedArray) System.out.print(i + " ");
-        System.out.println("\n---------------------------------");
+        System.out.println("\n-----------------------------------------");
 
         bubbleSortWithTwoFor(unsortedArray);
         bubbleSortWithWhileAndFor(unsortedArray);
         selectionSort(unsortedArray);
         insertionSort(unsortedArray);
+        shellSort(unsortedArray);
         shuttleSort(unsortedArray);
 
-//        System.out.println("---------------------------------\nПроверяем, что изначальный неотсортированый массив нетронут:");
-//        for (int i : unsortedArray) System.out.print(i + " ");
-//        System.out.println();
-
-
+        System.out.println("------------------------------------------------------------\n" +
+                "Проверяем, что изначальный неотсортированый массив нетронут:");
+        for (int i : unsortedArray) System.out.print(i + " ");
+        System.out.println();
     }
-
 }
