@@ -4,6 +4,44 @@ import java.util.*;
 
 public class SortingAlgorithms {
 
+    public static void main(String[] args) {
+        // наполняем массив рандомными значениями от 0 до 9999
+        int[] unsortedArray = new int[10000];
+        Random random = new Random();
+        for (int i = 0; i < unsortedArray.length; i++) {
+            unsortedArray[i] = random.nextInt(10000);
+        }
+        // выводить содержимое массивов в консоль?
+        showContent = true;
+
+        System.out.print("Создан массив int (0 - 9999) на " + unsortedArray.length + " чисел для сортировок");
+        if (showContent){
+            System.out.print(":\n");
+            for (int i : unsortedArray) System.out.print(i + " ");
+            System.out.println("\n");
+        }
+        else System.out.print(".\n\n");
+
+        bubbleSortWithTwoFor(unsortedArray);
+        bubbleSortWithWhileAndFor(unsortedArray);
+        selectionSort(unsortedArray);
+        insertionSort(unsortedArray);
+        shellSort(unsortedArray);
+        shuttleSort(unsortedArray);
+        quickSort(unsortedArray);
+
+        if(showContent) {
+            System.out.println("------------------------------------------------------------\n" +
+                    "Проверяем, что изначальный неотсортированый массив нетронут:");
+            for (int i : unsortedArray) System.out.print(i + " ");
+            System.out.println();
+        }
+    }
+
+    // флаг для вывода содержимого массивов в консоль
+    static boolean showContent = false;
+
+
     // СОРТИРОВКА ПУЗЫРЬКОМ (2 цикла for)
     public static void bubbleSortWithTwoFor(int[] unsortedArray) {
         // клонируем массив, чтобы не "задеть" оригинал
@@ -242,42 +280,5 @@ public class SortingAlgorithms {
 
         if (high > i)
             quickSortWithRecursion(array, i, high);
-    }
-
-    // флаг для вывода содержимого массивов в консоль
-    static boolean showContent = false;
-
-    public static void main(String[] args) {
-        // наполняем массив рандомными значениями от 0 до 9999
-        int[] unsortedArray = new int[10000];
-        Random random = new Random();
-        for (int i = 0; i < unsortedArray.length; i++) {
-            unsortedArray[i] = random.nextInt(10000);
-        }
-        // выводить содержимое массивов в консоль?
-        showContent = false;
-
-        System.out.print("Создан массив int (0 - 9999) на " + unsortedArray.length + " чисел для сортировок");
-        if (showContent){
-            System.out.print(":\n");
-            for (int i : unsortedArray) System.out.print(i + " ");
-            System.out.println("\n");
-        }
-        else System.out.print(".\n\n");
-
-        bubbleSortWithTwoFor(unsortedArray);
-        bubbleSortWithWhileAndFor(unsortedArray);
-        selectionSort(unsortedArray);
-        insertionSort(unsortedArray);
-        shellSort(unsortedArray);
-        shuttleSort(unsortedArray);
-        quickSort(unsortedArray);
-
-        if(showContent) {
-            System.out.println("------------------------------------------------------------\n" +
-                    "Проверяем, что изначальный неотсортированый массив нетронут:");
-            for (int i : unsortedArray) System.out.print(i + " ");
-            System.out.println();
-        }
     }
 }
