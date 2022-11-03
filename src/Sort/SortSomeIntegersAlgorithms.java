@@ -2,25 +2,24 @@ package Sort;
 
 import java.util.*;
 
-public class SortingAlgorithms {
+public class SortSomeIntegersAlgorithms {
 
     public static void main(String[] args) {
         // наполняем массив рандомными значениями от 0 до 9999
-        int[] unsortedArray = new int[10000];
+        int[] unsortedArray = new int[10000];   // 10000
         Random random = new Random();
         for (int i = 0; i < unsortedArray.length; i++) {
-            unsortedArray[i] = random.nextInt(10000);
+            unsortedArray[i] = random.nextInt(10000);   //10000
         }
         // выводить содержимое массивов в консоль?
-        showContent = true;
+        showContent = false;
 
-        System.out.print("Создан массив int (0 - 9999) на " + unsortedArray.length + " чисел для сортировок");
-        if (showContent){
-            System.out.print(":\n");
+        System.out.printf("Создан массив int со значениями 0 - 9999 на %d чисел", unsortedArray.length);
+        if (showContent) {
+            System.out.println();
             for (int i : unsortedArray) System.out.print(i + " ");
             System.out.println("\n");
-        }
-        else System.out.print(".\n\n");
+        } else System.out.println("\n");
 
         bubbleSortWithTwoFor(unsortedArray);
         bubbleSortWithWhileAndFor(unsortedArray);
@@ -30,7 +29,7 @@ public class SortingAlgorithms {
         shuttleSort(unsortedArray);
         quickSort(unsortedArray);
 
-        if(showContent) {
+        if (showContent) {
             System.out.println("------------------------------------------------------------\n" +
                     "Проверяем, что изначальный неотсортированый массив нетронут:");
             for (int i : unsortedArray) System.out.print(i + " ");
@@ -41,12 +40,35 @@ public class SortingAlgorithms {
     // флаг для вывода содержимого массивов в консоль
     static boolean showContent = false;
 
+    // считаем время выполнения алгоритма и выводим результат в консоль
+    private static void resultToConsole(int[] array, String name, Date start) {
+        // расчитываем время выполнения метода
+        long time = new Date().getTime() - start.getTime();
+        // проверяем, корректно ли отсортирован массив
+        boolean isCorrectSorted = true;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) {
+                isCorrectSorted = false;
+                break;
+            }
+        }
+        // выводим результат в консоль
+        if (isCorrectSorted) {
+            System.out.printf("%s: " + time + " миллисек", name);
+            if (showContent) {
+                System.out.println();
+                for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
+                System.out.println();
+            } else System.out.println();
+        } else
+            System.out.printf("ОШИБКА! %s: некорректный результат", name);
+    }
 
-    // СОРТИРОВКА ПУЗЫРЬКОМ (2 цикла for)
     public static void bubbleSortWithTwoFor(int[] unsortedArray) {
-        // клонируем массив, чтобы не "задеть" оригинал
+        String name = "СОРТИРОВКА ПУЗЫРЬКОМ (2 цикла for)";
+        // клонируем массив, чтобы не трогать оригинал
         int[] array = unsortedArray.clone();
-        // засекаем время выполнения метода
+        // засекаем начало сортировки
         Date start = new Date();
         // алгоритм сотрировки "пузырьком"
         for (int i = 0; i < array.length - 1; i++) {
@@ -58,20 +80,12 @@ public class SortingAlgorithms {
                 }
             }
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ПУЗЫРЬКОМ\" (2 цикла for) - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // СОРТИРОВКА ПУЗЫРЬКОМ (while и for)
     public static void bubbleSortWithWhileAndFor(int[] unsortedArray) {
+        String name = "СОРТИРОВКА ПУЗЫРЬКОМ (while и for)";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
@@ -89,20 +103,12 @@ public class SortingAlgorithms {
                 }
             }
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ПУЗЫРЬКОМ\" (while и for) - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // СОРТИРОВКА ВЫБОРОМ
     public static void selectionSort(int[] unsortedArray) {
+        String name = "СОРТИРОВКА ВЫБОРОМ";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
@@ -119,20 +125,12 @@ public class SortingAlgorithms {
             array[minInt] = array[left];
             array[left] = tmp;
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ВЫБОРОМ\" - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // СОРТИРОВКА ВСТАВКАМИ
     public static void insertionSort(int[] unsortedArray) {
+        String name = "СОРТИРОВКА ВСТАВКАМИ";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
@@ -146,20 +144,12 @@ public class SortingAlgorithms {
             }
             array[j] = swap;
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ВСТАВКАМИ\" - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // СОРТИРОВКА ШЕЛЛА
     public static void shellSort(int[] unsortedArray) {
+        String name = "СОРТИРОВКА ШЕЛЛА";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
@@ -187,20 +177,12 @@ public class SortingAlgorithms {
             // метод Кнута
             gap = (gap - 1) / 3;
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ШЕЛЛА\" - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // ЧЕЛНОЧНАЯ СОРТИРОВКА
     public static void shuttleSort(int[] unsortedArray) {
+        String name = "ЧЕЛНОЧНАЯ СОРТИРОВКА";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
@@ -220,36 +202,21 @@ public class SortingAlgorithms {
                 }
             }
         }
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"ЧЕЛНОЧНОЙ\" - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
-    // БЫСТРАЯ СОРТИРОВКА (в этом методе вызывается рекурсивный метод quickSortWithRecursion())
+    //БЫСТРАЯ СОРТИРОВКА (в этом методе вызывается рекурсивный метод quickSortWithRecursion())
     public static void quickSort(int[] unsortedArray) {
+        String name = "БЫСТРАЯ СОРТИРОВКА";
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
         Date start = new Date();
         // вызываем рекурсивный метод быстрой сортировки
         quickSortWithRecursion(array, 0, array.length - 1);
-        // расчитываем время выполнения метода
-        long time = new Date().getTime() - start.getTime();
         // выводим результат в консоль
-        System.out.print("Результат сортировки \"БЫСТРОЙ\" - " + time + " миллисек");
-        if(showContent) {
-            System.out.print(":\n");
-            for (int i = 0; i < array.length; i++) System.out.print(array[i] + " ");
-            System.out.println();
-        }
-        else System.out.print(".\n");
+        resultToConsole(array, name, start);
     }
 
     private static void quickSortWithRecursion(int[] array, int low, int high) {
