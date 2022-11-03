@@ -5,8 +5,8 @@ import java.util.Date;
 public class QuickSort extends SortUtility{
     private final static String NAME = "БЫСТРАЯ СОРТИРОВКА";
 
-    // БЫСТРАЯ СОРТИРОВКА (в этом методе вызывается рекурсивный метод quickSort())
-    public static void sort(int[] unsortedArray) {
+    // в этом методе вызывается рекурсивный метод quickSort()
+    public static void doSort(int[] unsortedArray) {
         // проверяем, совпадает ли переданный массив с начальным
         unsortedArrayCheck(unsortedArray);
         // клонируем массив, чтобы не "задеть" оригинал
@@ -15,10 +15,11 @@ public class QuickSort extends SortUtility{
         Date start = new Date();
         // вызываем рекурсивный метод быстрой сортировки
         quickSort(array, 0, array.length - 1);
-        // выводим результат в консоль
+        // проверяем результат и выводим в консоль
         checkAndResultToConsole(array, NAME, start);
     }
 
+    /** АЛГОРИТМ БЫСТРОЙ СОРТИРОВКИ */
     private static void quickSort(int[] array, int low, int high) {
         // алгоритм "быстрой" сортировки
         if (array.length == 0 || low >= high) return;
@@ -44,7 +45,6 @@ public class QuickSort extends SortUtility{
         // вызов рекурсии для сортировки левой и правой части
         if (low < j)
             quickSort(array, low, j);
-
         if (high > i)
             quickSort(array, i, high);
     }

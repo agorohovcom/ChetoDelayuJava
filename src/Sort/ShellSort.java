@@ -5,14 +5,21 @@ import java.util.Date;
 public class ShellSort extends SortUtility{
     private final static String NAME = "СОРТИРОВКА ШЕЛЛА";
 
-    public static void sort(int[] unsortedArray) {
+    public static void doSort(int[] unsortedArray) {
         // проверяем, совпадает ли переданный массив с начальным
         unsortedArrayCheck(unsortedArray);
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
         Date start = new Date();
-        // алгоритм "челночной" сортировки
+        // запускаем алгоритм "челночной" сортировки
+        shellSort(array);
+        // проверяем результат и выводим в консоль
+        checkAndResultToConsole(array, NAME, start);
+    }
+
+    /** АЛГОРИТМ СОРТИРОВКИ ШЕЛЛА */
+    private static void shellSort(int[] array){
         // сперва высчитываем промежуток между проверяемыми элементами, выриантов есть много
 //        int gap = 2; - // простой вариант
         // метод Кнута
@@ -34,7 +41,5 @@ public class ShellSort extends SortUtility{
             // метод Кнута
             gap = (gap - 1) / 3;
         }
-        // выводим результат в консоль
-        checkAndResultToConsole(array, NAME, start);
     }
 }

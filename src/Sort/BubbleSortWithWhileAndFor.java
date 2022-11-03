@@ -5,14 +5,21 @@ import java.util.Date;
 public class BubbleSortWithWhileAndFor extends SortUtility{
     private final static String NAME = "СОРТИРОВКА ПУЗЫРЬКОМ (while и for)";
 
-    public static void sort(int[] unsortedArray) {
+    public static void doSort(int[] unsortedArray) {
         // проверяем, совпадает ли переданный массив с начальным
         unsortedArrayCheck(unsortedArray);
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
         Date start = new Date();
-        // алгоритм сотрировки "пузырьком" (while и for)
+        // вызываем алгоритм сотрировки
+        bubbleSortWithWhileAndFor(array);
+        // проверяем результат и выводим в консоль
+        checkAndResultToConsole(array, NAME, start);
+    }
+
+    /** АЛГОРИТМ СОРТИРОВКИ ПУЗЫРЬКОМ (while и for) */
+    private static void bubbleSortWithWhileAndFor(int[] array){
         boolean isNotSorted = true;
         while (isNotSorted) {
             isNotSorted = false;
@@ -24,7 +31,5 @@ public class BubbleSortWithWhileAndFor extends SortUtility{
                 }
             }
         }
-        // выводим результат в консоль
-        checkAndResultToConsole(array, NAME, start);
     }
 }

@@ -6,14 +6,21 @@ import java.util.Date;
 public class ShuttleSort extends SortUtility {
     private final static String NAME = "ЧЕЛНОЧНАЯ СОРТИРОВКА";
 
-    public static void sort(int[] unsortedArray) {
+    public static void doSort(int[] unsortedArray) {
         // проверяем, совпадает ли переданный массив с начальным
         unsortedArrayCheck(unsortedArray);
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
         Date start = new Date();
-        // алгоритм "челночной" сортировки
+        // вызываем алгоритм челночной сортировки
+        shuttleSort(array);
+        // проверяем результат и выводим в консоль
+        checkAndResultToConsole(array, NAME, start);
+    }
+
+    /** АЛГОРИТМ ЧЕЛНОЧНОЙ СОРТИРОВКИ */
+    private static void shuttleSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i] < array[i - 1]) {
                 // меняем элементы массива местами
@@ -26,8 +33,5 @@ public class ShuttleSort extends SortUtility {
                 }
             }
         }
-        // выводим результат в консоль
-        checkAndResultToConsole(array, NAME, start);
-
     }
 }

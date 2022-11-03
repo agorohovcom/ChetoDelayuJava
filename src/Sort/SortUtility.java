@@ -65,7 +65,7 @@ class SortUtility {
         }
         // выводим результат в консоль
         if (isCorrectSorted) {
-            System.out.printf("%s: " + time + " миллисек", name);
+            System.out.printf("%-40s%10d%10s", name + ":", time, "миллисек");
             if (showContent) {
                 System.out.println();
                 for (int j : array) System.out.print(j + " ");

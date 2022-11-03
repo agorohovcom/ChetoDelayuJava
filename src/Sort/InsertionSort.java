@@ -5,14 +5,21 @@ import java.util.Date;
 public class InsertionSort extends SortUtility{
     private final static String NAME = "СОРТИРОВКА ВСТАВКАМИ";
 
-    public static void sort(int[] unsortedArray) {
+    public static void doSort(int[] unsortedArray) {
         // проверяем, совпадает ли переданный массив с начальным
         unsortedArrayCheck(unsortedArray);
         // клонируем массив, чтобы не "задеть" оригинал
         int[] array = unsortedArray.clone();
         // засекаем время выполнения метода
         Date start = new Date();
-        // алгоритм сотрировки "вставками"
+        // вызываем алгоритм сортировки
+        insertionSort(array);
+        // проверяем результат и выводим в консоль
+        checkAndResultToConsole(array, NAME, start);
+    }
+
+    /** АЛГОРИТМ СОРТИРОВКИ ВСТАВКАМИ */
+    private static void insertionSort(int[] array){
         int j;
         for (int i = 1; i < array.length; i++) {
             int swap = array[i];
@@ -21,8 +28,5 @@ public class InsertionSort extends SortUtility{
             }
             array[j] = swap;
         }
-        // выводим результат в консоль
-        checkAndResultToConsole(array, NAME, start);
     }
-
 }
