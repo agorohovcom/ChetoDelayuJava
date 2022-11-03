@@ -6,7 +6,7 @@ import java.util.Random;
 
 class SortUtility {
     // флаг для вывода содержимого массивов в консоль
-    protected static boolean showContent = false;
+    private static boolean showContent = false;
 
     // сюда сохраним созданный массив после инициализации в createArrayForSort()
     private static int[] unsortedArrayClone;
