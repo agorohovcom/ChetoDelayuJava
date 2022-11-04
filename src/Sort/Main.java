@@ -15,6 +15,7 @@ public class Main extends SortUtility {
         ShellSort.doSort(unsortedArray);                    // СОРТИРОВКА ШЕЛЛА
         ShuttleSort.doSort(unsortedArray);                  // ЧЕЛНОЧНАЯ СОРТИРОВКА
         QuickSort.doSort(unsortedArray);                    // БЫСТРАЯ СОРТИРОВКА
+        MergeSort.doSort(unsortedArray);                    // СОРТИРОВКА СЛИЯНИЕМ
         DefaultArraysSort.doSort(unsortedArray);            // СТАНДАРТНАЯ СОРТИРОВКА (Arrays.sort())
     }
 }

@@ -72,6 +72,6 @@ class SortUtility {
                 System.out.println();
             } else System.out.println();
         } else
-            System.out.printf("ОШИБКА! %s: некорректный результат сортировки", name);
+            System.out.printf("ОШИБКА! %s: некорректный результат сортировки%n", name);
     }
 }

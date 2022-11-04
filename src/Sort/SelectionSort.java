@@ -18,7 +18,7 @@ public class SelectionSort extends SortUtility{
         checkAndResultToConsole(array, NAME, start);
     }
 
-    /** Алгоритм сортировки выбором */
+    /** АЛГОРИТМ СОРТИРОВКИ ВЫБОРОМ */
     private static void selectionSort(int[] array){
         for (int left = 0; left < array.length - 1; left++) {
             int minInt = left;
