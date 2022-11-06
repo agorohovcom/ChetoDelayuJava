@@ -4,8 +4,8 @@ public class Main extends SortUtility {
 
     public static void main(String[] args) {
         // задаём массив для сортировок
-        // параметры: размер массива, диапазон значений, выводить ли содержимое в консоль
-        int [] unsortedArray = createArrayForSort(10000, 10000, false);
+        // параметры: размер массива, диапазон значений, создать ли отсортированный массив и выводить ли содержимое в консоль
+        int [] unsortedArray = createArrayForSort(100000, 100000, false, false);
 
         // вызов сортировок
         BubbleSortWithTwoFor.doSort(unsortedArray);         // СОРТИРОВКА ПУЗЫРЬКОМ (2 цикла for)

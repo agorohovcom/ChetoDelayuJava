@@ -13,24 +13,32 @@ class SortUtility {
 
     // проверяем, не перезаписали ли мы начальный массив другой сортировкой
     // запускается перед каждой сортировкой в методе sort()
-    protected static void unsortedArrayCheck(int [] array) {
+    protected static void unsortedArrayCheck(int[] array) {
         if (!Arrays.equals(array, unsortedArrayClone)) {
             throw new Error("ОШИБКА! Начальный массив изменён. Нужно сортировать клон массива, а не сам массив.");
         }
     }
 
     // создание массива для сортировок
-    // параметры: размер массива, диапазон значений, выводить ли содержимое в консоль
-    protected static int[] createArrayForSort(int arrayCapacity, int valuesMaxSize, boolean showContent) {
+    // параметры: размер массива, диапазон значений, создать ли отсортированный массив и выводить ли содержимое в консоль
+    protected static int[] createArrayForSort(int arrayCapacity, int valuesMaxSize, boolean createSortedArray, boolean showContent) {
         // флаг, выводить ли в консоль содержимое массивов
         SortUtility.showContent = showContent;
         // наполняем массив рандомными значениями в заданных пределах
         int[] newArray = new int[arrayCapacity];
-        Random random = new Random();
-        for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = random.nextInt(valuesMaxSize);
+        // если createSortedArray == true - создаем отсортированный массив, если false - случайный
+        if (createSortedArray) {
+            for (int i = 0; i < newArray.length; i++) {
+                newArray[i] = i;
+            }
+            System.out.printf("Создан отсортированный массив int[] от 0 до %d", arrayCapacity - 1);
+        } else {
+            Random random = new Random();
+            for (int i = 0; i < newArray.length; i++) {
+                newArray[i] = random.nextInt(valuesMaxSize);
+            }
+            System.out.printf("Создан случайный массив int[] на %d элементов, диапазон значений от 0 до %d", arrayCapacity, valuesMaxSize - 1);
         }
-        System.out.printf("Создан массив int[] на %d элементов, диапазон значений от 0 до %d", arrayCapacity, valuesMaxSize - 1);
         // если showContent = true, выводим содержимое newArray в консоль
         if (showContent) {
             System.out.println();
