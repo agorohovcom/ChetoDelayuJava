@@ -1,7 +1,5 @@
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Ну здорова, отец");
+        System.out.println("hvhgvhgv");
     }
 }

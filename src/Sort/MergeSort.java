@@ -20,14 +20,18 @@ public class MergeSort extends SortUtility{
 
     /** АЛГОРИТМ СОРТИРОВКИ СЛИЯНИЕМ 1/2 */
     private static void mergeSort(int[] array, int left, int right){
+        // конец рекурсии
         if(left >= right) return;
+        // находим среднюю точку и делим массив на два
         int mid = (left + right) / 2;
+        // запускаем рекурсию для каждой из половины массива
         mergeSort(array, left, mid);
         mergeSort(array, mid + 1, right);
+        // сортировка
         merge(array, left, mid, right);
     }
 
-    /** АЛГОРИТМ СОРТИРОВКИ СЛИЯНИЕМ 2/2 */
+    /** АЛГОРИТМ СОРТИРОВКИ СЛИЯНИЕМ 2/2 (работа с подмассивами) */
     private static void merge(int[] array, int left, int mid, int right){
         // вычисляем длину
         int lengthLeft = mid - left + 1;

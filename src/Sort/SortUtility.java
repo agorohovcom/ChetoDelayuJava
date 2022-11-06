@@ -65,13 +65,17 @@ class SortUtility {
         }
         // выводим результат в консоль
         if (isCorrectSorted) {
-            System.out.printf("%-40s%10d%10s", name + ":", time, "миллисек");
+            System.out.printf("%-40s%10d%10s%n", name + ":", time, "миллисек");
             if (showContent) {
-                System.out.println();
                 for (int j : array) System.out.print(j + " ");
                 System.out.println();
-            } else System.out.println();
-        } else
+            }
+        } else {
             System.out.printf("ОШИБКА! %s: некорректный результат сортировки%n", name);
+            if (showContent) {
+                for (int j : array) System.out.print(j + " ");
+                System.out.println();
+            }
+        }
     }
 }
