@@ -1,4 +1,4 @@
-package Upcasting;
+package Polymorphism.Upcasting;
 
 public class Main {
     public static void main(String[] args) {
