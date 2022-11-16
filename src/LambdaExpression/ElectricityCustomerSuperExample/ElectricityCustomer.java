@@ -1,4 +1,4 @@
-package LambdaExpression;
+package LambdaExpression.ElectricityCustomerSuperExample;
 
 @FunctionalInterface
 public interface ElectricityCustomer {

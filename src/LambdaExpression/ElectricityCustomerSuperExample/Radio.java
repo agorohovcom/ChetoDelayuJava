@@ -1,4 +1,4 @@
-package LambdaExpression;
+package LambdaExpression.ElectricityCustomerSuperExample;
 
 public class Radio implements ElectricityCustomer {
     public void radioOn(){

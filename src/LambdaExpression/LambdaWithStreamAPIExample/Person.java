@@ -1,4 +1,4 @@
-package LambdaWithStreamAPI;
+package LambdaExpression.LambdaWithStreamAPIExample;
 
 public class Person {
 

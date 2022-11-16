@@ -1,4 +1,4 @@
-package LambdaWithStreamAPI;
+package LambdaExpression.LambdaWithStreamAPIExample;
 
 import java.util.ArrayList;
 import java.util.List;
