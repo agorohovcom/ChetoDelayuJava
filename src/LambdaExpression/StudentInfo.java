@@ -3,7 +3,9 @@ package LambdaExpression;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.Function;
 
 public class StudentInfo {
 
@@ -30,6 +32,8 @@ class Test {
         students.add(st5);
 
         StudentInfo info = new StudentInfo();
+
+
 
 //        Collections.sort(students, new Comparator<Student>() {
 //            @Override
@@ -63,10 +67,29 @@ class Test {
             return s.age < 30;
         });
 
-//        System.out.println("-------------------");
-//        info.testStudents(students, (Student s) -> {
-//            return s.age > 20 && s.avgRage < 9.5 && s.sex == 'f';
-//        });
+        System.out.println("-------------------");
+        info.testStudents(students, (Student s) -> {
+            return s.age > 20 && s.avgRage < 9.5 && s.sex == 'f';
+        });
+
+//        Function<Student, Double> f = student -> student.avgRage;
+        double result1 = avgOfSmth(students, srd -> srd.avgRage);
+        System.out.println(result1);
+        double result2 = avgOfSmth(students, srd -> (double)srd.course);
+        System.out.println(result2);
+        double result3 = avgOfSmth(students, srd -> (double) srd.age);
+        System.out.println(result3);
+
+
+    }
+
+    private static double avgOfSmth(List<Student> list, Function<Student, Double> f){
+        double result = 0;
+        for(Student st : list){
+            result+=f.apply(st);
+        }
+        result = result / list.size();
+        return result;
     }
 }
 
