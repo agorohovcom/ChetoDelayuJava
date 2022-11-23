@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Test2filter {
+public class FilterTest1 {
     public static void main(String[] args) {
         Student st1 = new Student("Ivan", 'm', 22, 3, 8.3);
         Student st2 = new Student("Nikolay", 'm', 28, 2, 6.4);
@@ -34,14 +34,14 @@ public class Test2filter {
 }
 
 class Student{
-    private String mame;
+    private String name;
     private char sex;
     private int age;
     private int course;
     private double avgRage;
 
-    public Student(String mame, char sex, int age, int course, double avgRage) {
-        this.mame = mame;
+    public Student(String name, char sex, int age, int course, double avgRage) {
+        this.name = name;
         this.sex = sex;
         this.age = age;
         this.course = course;
@@ -51,7 +51,7 @@ class Student{
     @Override
     public String toString() {
         return "Student{" +
-                "mame='" + mame + '\'' +
+                "name='" + name + '\'' +
                 ", sex=" + sex +
                 ", age=" + age +
                 ", course=" + course +
@@ -59,12 +59,12 @@ class Student{
                 '}';
     }
 
-    public String getMame() {
-        return mame;
+    public String getName() {
+        return name;
     }
 
-    public void setMame(String mame) {
-        this.mame = mame;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public char getSex() {

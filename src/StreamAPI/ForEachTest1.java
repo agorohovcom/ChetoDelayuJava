@@ -2,7 +2,7 @@ package StreamAPI;
 
 import java.util.Arrays;
 
-public class Test3forEach {
+public class ForEachTest1 {
     public static void main(String[] args) {
         int[] array = {5, 9, 3, 8, 1};
 

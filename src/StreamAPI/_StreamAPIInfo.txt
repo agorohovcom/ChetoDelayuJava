@@ -1,0 +1,94 @@
+Чтобы создать стрим коллекции, нужно вызвать метод stream().
+    Можно создать объект Stream<T> и работать с ним.
+    Объекты stream нельзя переиспользовать.
+
+Методы можно использовать в "метод chaining" (через точку друг за другом).
+
+===[ Source -> Intermediate methods (lazy) -> Terminal method (eager) ]===
+
+Source - источник, например: коллекция, массив.
+Intermediate methods - промежуточные методы, которые обрабатывают
+    поступающие элементы и возвращают стрим. Их может быть больше 1,
+    но они не будут исполнены до вызова Terminal method.
+Terminal method - не возвращает стрим, закрывает "метод chaining"
+
+                    ===== МЕТОДЫ Stream API =====
+
+Intermediate методы Stream API:
+
+    <R> Stream<R> map(Function<? super T, ? extends R> mapper)
+    Позволяет преобразовать каждый элемент коллекции, возвращает стрим.
+
+    Stream<T> filter(Predicate<? super T> predicate)
+    Позволяет фильтровать элементы коллекции, возвращает стрим.
+
+    Stream<T> sorted(Comparator<? super T> comparator);
+    Позволяет сортировать стрим, может принимать компаратор, возвращает стрим.
+
+    Stream<T> distinct()
+    Оставляет в стриме только разные элементы.
+
+    Stream<T> peek(Consumer<? super T> action)
+    Позволяет посмотреть, что происходит в стриме во время "метод chaining".
+
+    <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)
+    Создаёт стрим внутри стрима. Например, когда создаём стрим по коллекции,
+    которая содержит другие коллекции.
+
+    Stream<T> limit(long maxSize)
+    Задаёт лимит элементов в стриме.
+
+    Stream<T> skip(long n)
+    Пропускает n элементов в стриме.
+
+    IntStream mapToInt(ToIntFunction<? super T> mapper) (и другие типы)
+    Возвращает стрим Integer (или другой выбранный тип).
+    Имеет методы: sum(), average(), min(), max().
+
+    Stream<T> boxed()
+    Конвертирует примитивные типы в ссылочные (напр., int в Integer)
+
+Terminal методы Stream API:
+
+    void forEach(IntConsumer action)
+    Бежит по всем элементам, возвращает void.
+
+    T reduce(T identity, BinaryOperator<T> accumulator)
+    Optional<T> reduce(BinaryOperator<T> accumulator)
+    <U> U reduce(U identity,
+                     BiFunction<U, ? super T, U> accumulator,
+                     BinaryOperator<U> combiner)
+    Позволяет получить из стрима один элемент, может возвращать Optional.
+
+    <R, A> R collect(Collector<? super T, A, R> collector)
+    Преобразует стрим в коллекцию.
+    Collectors.groupingBy() - группирует элементы и возвращает Map, где
+    ключи соответствуют заданной группировке, а значения -
+    листы с соответствующими группировке элементами.
+    Collectors.partitioningBy() вернёт Map на два элемента.
+    Ключи - true и false, значения - лист с элементами в соответствии с условием.
+
+    long count();
+    Возвращает количество элементов в стриме.
+
+    Optional<T> findFirst()
+    Возвращает первый соответствующий условию элемент в виде Optional.
+
+    Optional<T> min(Comparator<? super T> comparator)
+    Optional<T> max(Comparator<? super T> comparator)
+    Возвращают минимальный и максимальный элемент в виде Optional.
+
+Другие методы Stream API:
+
+    public static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b)
+    Производит конкатенацию стримов, не может использоваться в "метод chaining".
+
+    default Stream<E> parallelStream()
+    S parallel()
+    Суть Parallel Stream - выполнение заданий в стриме разными
+    ядрами процессора, а затем объединение результатов.
+    2 способа применить:
+    1. вместо stream() вызвать parallelStream();
+    2. в "метод chaining" вызвать метод parallel().
+    Использовать, когда очень много элементов.
+    !!! Нельзя использовать в случаях, когда порядок элементов имеет значение.
