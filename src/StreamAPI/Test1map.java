@@ -3,7 +3,7 @@ package StreamAPI;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Test1 {
+public class Test1map {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("privet");
