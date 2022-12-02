@@ -3,12 +3,16 @@
     Объекты stream нельзя переиспользовать.
 
 Методы можно использовать в "метод chaining" (через точку друг за другом).
-[ Source -> Intermediate methods (lazy) -> Terminal method (eager) ]
+
+===[ Source -> Intermediate methods (lazy) -> Terminal method (eager) ]===
+
 Source - источник, например: коллекция, массив.
 Intermediate methods - промежуточные методы, которые обрабатывают
     поступающие элементы и возвращают стрим. Их может быть больше 1,
     но они не будут исполнены до вызова Terminal method.
 Terminal method - не возвращает стрим, закрывает "метод chaining"
+
+                    ===== МЕТОДЫ Stream API =====
 
 Intermediate методы Stream API:
 
@@ -78,3 +82,13 @@ Terminal методы Stream API:
 
     public static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b)
     Производит конкатенацию стримов, не может использоваться в "метод chaining".
+
+    default Stream<E> parallelStream()
+    S parallel()
+    Суть Parallel Stream - выполнение заданий в стриме разными
+    ядрами процессора, а затем объединение результатов.
+    2 способа применить:
+    1. вместо stream() вызвать parallelStream();
+    2. в "метод chaining" вызвать метод parallel().
+    Использовать, когда очень много элементов.
+    !!! Нельзя использовать в случаях, когда порядок элементов имеет значение.
