@@ -1,6 +1,6 @@
 package Multitreading;
 
-public class Example10 {
+public class Example11 {
     public static void main(String[] args) {
         MyRunnableImplementation1 runnable = new MyRunnableImplementation1();
         Thread thread1 = new Thread(runnable);
@@ -17,7 +17,7 @@ class Counter{
 }
 
 class MyRunnableImplementation1 implements Runnable{
-    public void increment(){
+    public synchronized void increment(){
         Counter.count++;
         System.out.print(Counter.count + " ");
     }
@@ -27,7 +27,7 @@ class MyRunnableImplementation1 implements Runnable{
 
             for (int i = 0; i < 3; i++) {
                 increment();
-            
+
         }
     }
 }
