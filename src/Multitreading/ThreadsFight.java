@@ -1,7 +1,9 @@
+package Multitreading;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Main {
+public class ThreadsFight {
     public static void main(String[] args) {
         SuperThreadGame game = new SuperThreadGame(10);
 
