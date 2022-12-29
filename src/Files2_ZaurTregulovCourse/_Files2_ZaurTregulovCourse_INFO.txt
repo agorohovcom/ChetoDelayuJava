@@ -1,0 +1,41 @@
+Stream - поток для работы с файоами, упорядоченная последовательность данных.
+
+Файлы разделяются на:
+    - читабельные (text files);
+    - нечитабельные (binary files).
+Для работы с ними используются разные типы стримов.
+
+=== FileReader и FileWriter ===
+
+    Используются для работы с текстовыми файлами.
+
+    FileWriter writer = new FileWriter("file1.txt");
+    FileReader reader = new FileReader("file1.txt");
+
+    !!! Стримы нужно обязательно закрывать (reader.close() или try-with-resources)
+
+=== BufferedReader и BufferedWriter ===
+
+    Использование буферизации в стримах позволяет достичь
+    большей эффективности при чтении файла или записи в него.
+
+    BufferedWriter writer = new BufferedWriter(new FileWriter("file1.txt"));
+    BufferedReader reader = new BufferedReader(new FileReader("file1.txt"));
+
+=== FileInputStream и FileOutputStream ===
+
+    Используются для работы с бинарными файлами.
+
+    FileInputStream inputStream = new FileInputStream("test2.bin");
+    FileOutputStream outputStream = new FileOutputStream("test2.bin");
+
+    Также можно использовать BufferedInputStream и BufferedOutputStream.
+
+=== DataInputStream и DataOutputStream ===
+
+    Позволяют записывать в файл и читать из него примитивные типы данных.
+
+    DataInputStream inputStream = new DataInputStream(new FileInputStream("test2.bin"));
+    DataOutputStream outputStream = new DataOutputStream(new FileOutputStream("test2.bin"));
+
+===  ===
