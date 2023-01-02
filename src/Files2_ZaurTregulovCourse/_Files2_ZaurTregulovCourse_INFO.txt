@@ -38,4 +38,30 @@ Stream - поток для работы с файоами, упорядочен�
     DataInputStream inputStream = new DataInputStream(new FileInputStream("test2.bin"));
     DataOutputStream outputStream = new DataOutputStream(new FileOutputStream("test2.bin"));
 
-===  ===
+=== Serialization ===
+
+    Сериализация - это процесс преобразования объекта в
+    последовательность байт.
+    Десериализация - процесс восстановления объекта из тих байт.
+
+    ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("test2.bin"));
+    ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("test2.bin"));
+
+    Все классы для сериализации должны быть Serializable.
+
+    transient - ключевое слово для полей, которые не должны быть сериализованы.
+    Нужно самому задавать static final long serialVersionUID.
+
+=== RandomAccessFile ===
+
+    Позволяет читать информацию из любого места файла и
+    записывать информацию в любое место файла.
+
+    RandomAccessFile file = new RandomAccessFile("file.txt", "rw");
+
+    seek() - установить поинтер в нужную позицию.
+    getFilePointer() - найти положение поинтера.
+
+=== Класс File ===
+
+    Класс File позволяет управлять информацией о файлах и директориях.
