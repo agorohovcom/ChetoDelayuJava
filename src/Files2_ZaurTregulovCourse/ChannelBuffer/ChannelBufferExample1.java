@@ -10,6 +10,8 @@ public class ChannelBufferExample1 {
     public static void main(String[] args) {
         try(RandomAccessFile file =
                     new RandomAccessFile(".\\src\\Files2_ZaurTregulovCourse\\ChannelBuffer\\text1.txt", "rw");
+            // ЧТЕНИЕ ИЗ ФАЙЛА
+
             // создаём канал прямо из файла
             FileChannel channel = file.getChannel()){
 
@@ -44,6 +46,33 @@ public class ChannelBufferExample1 {
 
             System.out.println(stix);
 
+            // =========================
+
+            String text = "\nOriginal HP 67XL Black High-yield Ink Cartridge | Works with HP DeskJet 1255, 2700, 4100 Series, HP ENVY 6000, 6400 Series | Eligible for Instant Ink | 3YM57AN";
+//            // ЗАПИСЬ В ФАЙЛ СПОСОБ 1
+//
+//            // создадим новый буффер размером как строка text, а канал оставим тот же
+//            ByteBuffer buffer2 = ByteBuffer.allocate(text.getBytes().length);
+//
+//            // добавим строку в буффер
+//            buffer2.put(text.getBytes());
+//
+//            // переводим буффер в режим чтения
+//            buffer2.flip();
+//
+//            // записываем строку text в файл из буффера
+//            channel.write(buffer2);
+
+//            // ЗАПИСЬ В ФАЙЛ СПОСОБ 2
+
+            // используем метод wrap(), он записывает информацию из текста в буффер
+            // нам не нужно:
+            // вручную указывать размер буффера, записывать в буфер и делать флип
+            // эти 3 вещи делает метод wrap()
+            ByteBuffer buffer2 = ByteBuffer.wrap(text.getBytes());
+
+            // записываем строку text в файл из буффера
+            channel.write(buffer2);
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
