@@ -8,7 +8,9 @@ public class RexExExample2 {
 //        String s1 = "ABCD ABCE ABCFABCGABCH";
 //        Pattern pattern1 = Pattern.compile("[ABC]");    // создаём шаблон
         String s1 = "abcd abce abc5abcg6abch";
-        Pattern pattern1 = Pattern.compile("abc(e|5)");
+//        Pattern pattern1 = Pattern.compile("abc(e|5)");
+//        Pattern pattern1 = Pattern.compile("\\Aabc");
+        Pattern pattern1 = Pattern.compile("ch\\Z");
 
         Matcher matcher = pattern1.matcher(s1);               // ищем шаблон и передаём результат объекту Matcher
 

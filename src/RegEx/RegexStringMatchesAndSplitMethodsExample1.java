@@ -1,9 +1,8 @@
 package RegEx;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
-public class RexExExample1 {
+public class RegexStringMatchesAndSplitMethodsExample1 {
     public static void main(String[] args) {
         String s =
                 "Ivanov Vasiliy, Russia, Moscow, Lenin street, 51, Flat 48, " +
@@ -13,14 +12,11 @@ public class RexExExample1 {
                 "Chu Li, Krakozhya, Tarasvill, Guberniev street, 43, Flat 444, " +
                 "email: zh-izha@lol.ru, Postcode: CC77, Phone Number: +547856985;";
 
-//        Pattern pattern = Pattern.compile("\\w+");
-//        Pattern pattern = Pattern.compile("\\b\\d{2}\\b");
-//        Pattern pattern = Pattern.compile("\\+\\d{9}");
-//        Pattern pattern = Pattern.compile("\\w+@\\w+\\.\\w{2,4}");
-        Pattern pattern = Pattern.compile("[\\w|\\-|\\.]+@\\w+\\.\\w{2,4}");
-        Matcher matcher = pattern.matcher(s);
-        while (matcher.find()){
-            System.out.println(matcher.group());
-        }
+        String s2 = "zh-izha@lol.ru";
+        boolean result = s2.matches("[\\w|\\-|\\.]+@\\w+\\.\\w{2,4}");
+        System.out.println(result);     // true
+
+        String[] array = s.split(" ");
+        System.out.println(Arrays.toString(array));
     }
 }
