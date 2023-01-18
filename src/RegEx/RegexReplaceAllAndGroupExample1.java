@@ -1,6 +1,6 @@
 package RegEx;
 
-public class RegexStringReplaceAllAndGroupMethodsExample1 {
+public class RegexReplaceAllAndGroupExample1 {
     public static void main(String[] args) {
         String s1 = "privet,     moy drug!    Kak idet izuchenie     Java    ?";
         System.out.println(s1);

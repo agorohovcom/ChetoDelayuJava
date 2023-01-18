@@ -3,7 +3,7 @@ package RegEx;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexStringReplaceAllAndGroupMethodsExample2 {
+public class RegexReplaceAllAndGroupExample2 {
     public static void main(String[] args) {
         String myString = "65435789654567861212324;" +
                 "45457878986503044565678;" +

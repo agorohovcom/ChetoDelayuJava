@@ -2,7 +2,7 @@ package RegEx;
 
 import java.util.Arrays;
 
-public class RegexStringMatchesAndSplitMethodsExample1 {
+public class RegexMatchesAndSplitExample1 {
     public static void main(String[] args) {
         String s =
                 "Ivanov Vasiliy, Russia, Moscow, Lenin street, 51, Flat 48, " +
