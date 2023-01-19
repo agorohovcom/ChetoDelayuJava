@@ -1,4 +1,4 @@
-package Reflection;
+package Reflection.SomeExample;
 
 import jdk.jfr.Description;
 

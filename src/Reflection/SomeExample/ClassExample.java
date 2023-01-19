@@ -1,4 +1,4 @@
-package Reflection;
+package Reflection.SomeExample;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -12,7 +12,7 @@ public class ClassExample {
          */
         // Получить Класс класса - способ 1
         try {
-            Class<?> carClass1 = Class.forName("Reflection.Car");
+            Class<?> carClass1 = Class.forName("Reflection.SomeExample.Car");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
