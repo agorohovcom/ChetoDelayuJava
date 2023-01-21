@@ -3,12 +3,12 @@ package Swing;
 import javax.swing.*;
 import java.awt.*;
 
-public class SimpleAnimation {
+public class SimpleAnimation1 {
     int x = 70;
     int y = 70;
 
     public static void main(String[] args) {
-        SimpleAnimation gui = new SimpleAnimation();
+        SimpleAnimation1 gui = new SimpleAnimation1();
         gui.go();
     }
 
