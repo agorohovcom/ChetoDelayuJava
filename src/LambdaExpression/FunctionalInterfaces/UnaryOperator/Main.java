@@ -24,7 +24,7 @@ public class Main {
         /** Метод apply()
          * ============= */
         UnaryOperator<String> unOp1 = new UOp();
-        System.out.println(unOp1.apply("Hello world!"));
+        System.out.println(unOp1.apply("Swing.Hello.Hello world!"));
         /** Пример реализации с помощью лямбда-функции и ссылки на метод */
         UnaryOperator<Integer> unOp2 = a -> -a;
         // #1

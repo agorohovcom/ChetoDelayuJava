@@ -11,10 +11,10 @@ public class Main {
          // Реализация с помощью класса StrToLength
          // *1 */
 //        Function<String, Integer> fun = new StrToLength();
-//        System.out.println(fun.apply("Hello"));
+//        System.out.println(fun.apply("Swing.Hello.Hello"));
         /** Реализация с помощью лямбда */
 //        Function<String, Integer> fun1 = a -> a.length();
-//        System.out.println(fun1.apply("Hello"));
+//        System.out.println(fun1.apply("Swing.Hello.Hello"));
 //        Function<String, Integer> fun2 = String::length;
 //        System.out.println(fun2.apply("World"));
         /** ---- Пример использования Function ----
@@ -70,7 +70,7 @@ public class Main {
 //        Function<String,Integer> fun7_2 = a -> a.length();
         /** В fun7_3 сперва вызовется fun7_1 и удалит всё, кроме букв, потом вызовется fun7_2 */
 //        Function<String,Integer> fun7_3 = fun7_2.compose(fun7_1);
-//        String text = "Hello world 1234, 621, a 15";
+//        String text = "Swing.Hello.Hello world 1234, 621, a 15";
 //        System.out.println(fun7_3.apply(text));
         /** --- разница между andThen() и compose(): ----
          // в andThen() - первая текущая, второй параметр
@@ -89,7 +89,7 @@ public class Main {
          // создание композиции из реализаций BiFunction. Первой выз текущая реализ, второй - используемая в кач параметра
          // * 5 apply() */
 //        BiFunction<String,Character,Integer> countLetter = Main::biCount;
-//        System.out.println(countLetter.apply("Hello", 'l'));
+//        System.out.println(countLetter.apply("Swing.Hello.Hello", 'l'));
         /** andThen() */
 //        BiFunction<String, String, String[]> fun8_1 = (a,b) -> a.split(b);
 //        Function<String[], String> fun8_2 = a -> String.join("", a);
@@ -108,7 +108,7 @@ public class Main {
          * метод apply() называется applyAsInt(), applyAsLong() и applyAsDouble
          */
 //        ToIntFunction<String> fun10 = a -> a.hashCode();
-//        System.out.println(fun10.applyAsInt("Hello"));
+//        System.out.println(fun10.applyAsInt("Swing.Hello.Hello"));
         /** Принимающие и производящие специализации Function:
          * IntToLongFunction        applyAsLong()
          * IntToDoubleFunction      applyAsLong()

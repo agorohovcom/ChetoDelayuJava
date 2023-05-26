@@ -30,8 +30,8 @@ public class Main {
         /** Реализация с помощью класса */
         // #1
         BinaryOperator<String> biOpByClass = new StringConcat(5);
-        String text1 = biOpByClass.apply("Hello", "cat");
-        System.out.println(text1);      //Hello
+        String text1 = biOpByClass.apply("Swing.Hello.Hello", "cat");
+        System.out.println(text1);      //Swing.Hello.Hello
 
         /** Реализация BinaryOperator с помощью ссылки на метод и лямбда-функции */
         BinaryOperator<Integer> binOpByLambda = (a, b) -> a + b;
@@ -55,16 +55,16 @@ public class Main {
         Integer s1 = reduce(list1, binOp1, 0);
         System.out.println(s1);     // 6
 
-        List<String> list2 = List.of("Hello", "Java", "world");
+        List<String> list2 = List.of("Swing.Hello.Hello", "Java", "world");
         BinaryOperator<String> binOp2 = (a, b) -> a + " " + b;
         String s2 = reduce(list2, binOp2, "");
-        System.out.println(s2);     //  Hello Java world
+        System.out.println(s2);     //  Swing.Hello.Hello Java world
 
         /** Метод andThen() функционального интерфейса BinaryOperator */
         BinaryOperator<String> binOp3 = (a, b) -> a + b;
         Function<String, Integer> func1 = a -> a.length();
         BiFunction<String, String, Integer> biFunc1 = binOp3.andThen(func1);
-        Integer result1 = biFunc1.apply("Hello", "World");
+        Integer result1 = biFunc1.apply("Swing.Hello.Hello", "World");
         System.out.println(result1);        // 10
 
         /** Методы maxBy() и minBy() функционального интерфейса BinaryOperator */

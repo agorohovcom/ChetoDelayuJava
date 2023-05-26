@@ -13,7 +13,7 @@ public class TestWildcard {
         List<?> list = new ArrayList<Integer>();
         // при использования wildcard <?> нельзя использовать методы,
         // изменяющие объект
-//        list.add("Hello");
+//        list.add("Swing.Hello.Hello");
 
         // bounded wildcards
         List<? extends Number> list30 = new ArrayList<Integer>();

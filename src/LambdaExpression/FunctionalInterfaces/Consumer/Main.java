@@ -25,12 +25,12 @@ public class Main {
         /** Использование метода accept()
          * ============================ */
         Consumer<String> cons1 = new HashCodePrinter<>();
-        cons1.accept("Hello");
+        cons1.accept("Swing.Hello.Hello");
         /** Реализация accept() ссылкой на метод и лямбда-функцией */
         Consumer<String> cons2 = a -> System.out.println("{" + a + "}");
         Consumer<String> cons3 = Main::simplePrinter;
-        cons2.accept("Hello world!");
-        cons3.accept("Hello world!");
+        cons2.accept("Swing.Hello.Hello world!");
+        cons3.accept("Swing.Hello.Hello world!");
 
         /** Побочный эффект метода accept():
          * -Читать и модифицировать значения глобальных переменных или полей класса
@@ -71,7 +71,7 @@ public class Main {
         Consumer<String> cons7 = a -> System.out.println("*");
         // result2 - это композиция cons6 и cons7
         Consumer<String> result2 = cons6.andThen(cons7);
-        result2.accept("Hello");                        // *Hello*
+        result2.accept("Swing.Hello.Hello");                        // *Swing.Hello.Hello*
 
         /** ======== Бинарная специализация - BiConsumer<T, U> ================================
          * ====================================================================================
@@ -81,7 +81,7 @@ public class Main {
 
         BiConsumer<String, Integer> biCons1 = (a, b) -> System.out.println(a.repeat(b));
         // repeat повторит a b раз
-        biCons1.accept("Hello", 3);
+        biCons1.accept("Swing.Hello.Hello", 3);
 
         /** BiConsumer в стандартной библиотеке
          * default void forEach(BiConsumer<? super K, ? super V> action) */
