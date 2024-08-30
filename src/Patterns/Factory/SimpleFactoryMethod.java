@@ -1,6 +1,9 @@
 package Patterns.Factory;
 
-public class FactoryMethod {
+/** Эту фигню я написал как сам понимаю,
+ * не претендую на истину)
+ */
+public class SimpleFactoryMethod {
     public static void main(String[] args) {
         Cat cat = Cat.createCat("Tom");
         System.out.println(cat);

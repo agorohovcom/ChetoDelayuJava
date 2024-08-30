@@ -1,5 +1,6 @@
 package Patterns.Factory;
 
+/** Из книги "Философия Java */
 public class FactoryWithInterface {
     public static void serviceConsumer(ServiceFactory fact){
         Service s = fact.getService();
