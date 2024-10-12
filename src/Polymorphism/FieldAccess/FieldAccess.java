@@ -11,17 +11,20 @@ public class FieldAccess {
 
     static class ParentClass {
         private String field = "Родитель";
-        public String getField(){
+
+        public String getField() {
             return field;
         }
     }
 
     public static class ChildClass extends ParentClass {
         private String field = "Наследник";
-        public String getField(){
+
+        public String getField() {
             return field;
         }
-        public String getSuperField(){
+
+        public String getSuperField() {
             return super.field;
         }
     }
